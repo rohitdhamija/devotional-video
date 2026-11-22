@@ -1,0 +1,14 @@
+{
+  "name": "devotional-video",
+  "owner": { "name": "rohitdhamija" },
+  "description": "Claude Code skills for devotional bhajan lyric videos, YouTube Shorts and thumbnails, all drawn in code.",
+  "plugins": [
+    {
+      "name": "devotional-video",
+      "source": "./plugins/devotional-video",
+      "description": "Bhajan MP3 + Devanagari lyrics + a temple or gate image -> animated dawn-to-sunrise lyric video, 3 Shorts, thumbnail and YouTube details. Includes the kinetic-lyrics skill it builds on.",
+      "version": "1.0.0",
+      "category": "media"
+    }
+  ]
+}

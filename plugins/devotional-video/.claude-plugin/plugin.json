@@ -1,0 +1,7 @@
+{
+  "name": "devotional-video",
+  "version": "1.0.0",
+  "description": "Bhajan MP3 + Devanagari lyrics + a temple or gate image -> animated dawn-to-sunrise lyric video with word-synced lyrics, 3 YouTube Shorts, a thumbnail and YouTube details. Includes the kinetic-lyrics skill.",
+  "author": { "name": "rohitdhamija" },
+  "keywords": ["video", "lyrics", "bhajan", "devotional", "hindi", "youtube", "shorts", "ffmpeg"]
+}
