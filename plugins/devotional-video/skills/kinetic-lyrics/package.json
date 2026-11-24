@@ -4,6 +4,7 @@
   "type": "module",
   "dependencies": {
     "@fontsource/poppins": "^5.0.0",
+    "@fontsource/tiro-devanagari-hindi": "^5.0.0",
     "puppeteer": "^24.0.0"
   }
 }

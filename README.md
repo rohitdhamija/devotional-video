@@ -29,17 +29,26 @@ Image: landscape, with a **blue sky** and an arch the lyrics can sit in.
 
 Claude stops for your approval at a contact sheet before each final render, and asks you when the lyrics don't match what is sung. It never edits your lyrics file.
 
-The plugin also includes `/kinetic-lyrics` (beat-synced kinetic typography for any song).
+## More skills in this plugin
+
+| Skill | Input | Output |
+|---|---|---|
+| `/hindi-lyric-video song.mp3 lyrics.txt [title] [artist]` | A Hindi song and its Devanagari lyrics | A calm old-paper video with an ink-wash landscape (the sun crosses the page, a boat drifts down the river) and words that darken as they are sung. It can also make green-screen lyric strips for overlaying on your own footage. |
+| `/kinetic-lyrics song.mp3 lyrics.txt` | Any song and its lyrics | Beat-synced kinetic typography, where big words slam in as they are sung and the type kicks on every detected beat. |
+| `/photo-lyric-story photos/ song.mp3 lyrics.txt [title] [end text]` | A folder of photos (JPEG, PNG, WebP or HEIC), a song and its lyrics | A photo-story slideshow for a wedding, birthday or farewell. Claude looks at each photo and matches it to the lyric line it fits. Photos pan and zoom slowly, cuts land on the beat, and kinetic lyrics run in the lower third. It has an optional title card and end card, and `--hd` gives 1080p for a projector. |
+
+Each skill shows you a contact sheet or storyboard and waits for your OK before the final render.
 
 ## Requirements
 
+- `photo-lyric-story` needs macOS, because it uses `sips` to read HEIC files and photo rotation. The other skills also run on Linux.
 - macOS with [Homebrew](https://brew.sh) (ffmpeg, Node and Python are installed automatically if missing). On Linux, install `ffmpeg`, `nodejs` and Python 3.10–3.13 yourself.
 - About 4 GB free disk for PyTorch, demucs and headless Chrome. The first run downloads them into `~/.claude/video-tools` (set `VIDEO_TOOLS_HOME` to change it, or `VIDEO_ENV` to reuse an existing venv with torch/torchaudio 2.8).
 - A 5-minute song takes roughly 10–20 minutes end to end on an Apple-silicon Mac (CPU only).
 
 ## Your content
 
-Use only songs, lyrics and images you own or have permission to use. The plugin does not upload anything; all processing is local.
+Use only songs, lyrics, images and photos you own or have permission to use. The plugin does not upload anything; all processing is local.
 
 ## License
 

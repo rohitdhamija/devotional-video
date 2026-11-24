@@ -2,7 +2,7 @@
 # Idempotent setup for the devotional-video plugin's lyric tools.
 # - checks ffmpeg, Node and Python (installs them with Homebrew on macOS if missing)
 # - builds a shared Python venv (torch/torchaudio for word alignment, NumPy for beats)
-# - installs puppeteer and the Poppins font into a shared folder and links it here
+# - installs puppeteer and the Poppins and Tiro Devanagari fonts into a shared folder and links it here
 # Shared tools live outside the plugin, so plugin updates don't re-download them:
 #   VIDEO_TOOLS_HOME  default ~/.claude/video-tools
 #   VIDEO_ENV         default $VIDEO_TOOLS_HOME/venv (point it at an existing venv to reuse one)
@@ -34,7 +34,8 @@ done
 NODE_DIR="$TOOLS/node"
 mkdir -p "$NODE_DIR"
 cp "$SKILL_DIR/package.json" "$SKILL_DIR/package-lock.json" "$NODE_DIR/"
-[ -d "$NODE_DIR/node_modules/puppeteer" ] && [ -d "$NODE_DIR/node_modules/@fontsource/poppins" ] || \
+for d in puppeteer @fontsource/poppins @fontsource/tiro-devanagari-hindi; do [ -d "$NODE_DIR/node_modules/$d" ] || { MISSING=1; break; }; done
+[ -z "${MISSING:-}" ] || \
   (cd "$NODE_DIR" && npm install --cache "$NODE_DIR/.npm-cache" --no-fund --no-audit && rm -rf "$NODE_DIR/.npm-cache")
 [ -e "$SKILL_DIR/node_modules" ] || ln -s "$NODE_DIR/node_modules" "$SKILL_DIR/node_modules"
 
